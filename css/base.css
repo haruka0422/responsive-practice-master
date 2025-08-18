@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin: 40px 0;
+  font-weight: bold;
+}
+
+.question--title {
+  font-size: 20px;
+}
+
+.q1-box {
+  width: 400px;
+  height: 400px;
+  background-color: #ff0000;
+  margin: 0 auto 40px;
+}
+
+/* SPサイズ（960px未満）でサイズ変更 */
+@media screen and (max-width: 959px) {
+  .q1-box {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.q2-box {
+  width: 300px;
+  height: 300px;
+  background-color: #ff0000;
+  margin: 0 auto 40px;
+}
+
+/* SP：背景色を青に変更 */
+@media screen and (max-width: 959px) {
+  .q2-box {
+    background-color: #007bff;
+  }
+}
+
+.q3-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.q3-box {
+  width: 200px;
+  height: 200px;
+}
+
+.q3-box.blue {
+  background-color: #0008ff;
+  margin-right: 150px; /* 初期（PC）の余白 */
+}
+
+.q3-box.green {
+  background-color: #22ff00;
+}
+
+/* SP用：余白を縮める */
+@media screen and (max-width: 959px) {
+  .q3-box.blue {
+    margin-right: 50px;
+  }
+}
+
+/* 共通 */
+.q4-box {
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  line-height: 200px;
+  text-align: center;
+}
+
+/* 色 */
+.q4-box.red {
+  background-color: #ff0000;
+}
+.q4-box.blue {
+  background-color: #0008ff;
+}
+
+/* PC用（横並びにする） */
+.q4-box {
+  float: left;
+  margin: 10px;
+}
+
+/* SP用（960px未満でfloat解除 & 左寄せ） */
+@media screen and (max-width: 959px) {
+  .q4-box {
+    float: none; /* float解除 */
+    display: block;
+    margin: 10px 0; /* 左寄せ（中央寄せしない） */
+  }
+}
