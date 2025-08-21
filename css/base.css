@@ -88,7 +88,6 @@ h3 {
 /* PC用（横並びにする） */
 .q4-box {
   float: left;
-  margin: 10px;
 }
 
 /* SP用（960px未満でfloat解除 & 左寄せ） */
@@ -96,6 +95,42 @@ h3 {
   .q4-box {
     float: none; /* float解除 */
     display: block;
-    margin: 10px 0; /* 左寄せ（中央寄せしない） */
+  }
+}
+
+/* 共通 */
+.q5-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 文字を中央寄せ */
+}
+
+.q5-box {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #000;
+}
+
+/* 色分け */
+.box-a {
+  background: #ff0000;
+}
+.box-b {
+  background: #0008ff;
+  color: #fff;
+} /* 青なので文字は白推奨 */
+.box-c {
+  background: #ff8400;
+}
+
+/* SP (960px未満) */
+@media screen and (max-width: 960px) {
+  .q5-container {
+    flex-direction: row-reverse; /* 横並びの逆順 */
   }
 }
