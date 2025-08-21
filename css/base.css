@@ -68,38 +68,44 @@ h3 {
   }
 }
 
-/* 共通 */
+.q4-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+  justify-content: center;
+}
+
 .q4-box {
   width: 200px;
   height: 200px;
-  color: #fff;
-  line-height: 200px;
-  text-align: center;
 }
 
-/* 色 */
-.q4-box.red {
+/* PC時 横並び */
+.red {
   background-color: #ff0000;
-}
-.q4-box.blue {
-  background-color: #0008ff;
-}
-
-/* PC用（横並びにする） */
-.q4-box {
   float: left;
 }
 
-/* SP用（960px未満でfloat解除 & 左寄せ） */
+.blue {
+  background-color: #0008ff;
+  float: left;
+}
+
+/* SP時 縦並び */
 @media screen and (max-width: 959px) {
-  .q4-box {
-    float: none; /* float解除 */
-    display: block;
+  .red,
+  .blue {
+    float: none !important; /* ← 強制解除 */
+  }
+
+  /* 青の下は余白なしにしたい場合 */
+  .blue {
+    margin-bottom: 0;
   }
 }
 
 /* 共通 */
-.q5-container {
+.q5-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,12 +134,12 @@ h3 {
 
 /* SP (960px未満) */
 @media screen and (max-width: 960px) {
-  .q5-container {
+  .q5-wrapper {
     flex-direction: row-reverse; /* 横並びの逆順 */
   }
 }
 
-.q6-container {
+.q6-wrapper {
   display: flex;
   justify-content: center; /* 中央寄せ */
   text-align: center;
@@ -175,45 +181,41 @@ h3 {
   }
 }
 
-.q7-container {
+.q7-wrapper {
   display: flex;
   justify-content: center;
-  width: 100%;
+  margin-bottom: 40px;
 }
 
 .q7-box {
-  flex: 1;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* テキストを下寄せ（スクショっぽく） */
-  font-size: 24px;
-  padding: 10px;
+  width: 200px;
+  height: 200px;
 }
 
-.red {
-  background: #ff0000;
-}
-.green {
-  background: #00ff51;
-}
-.blue {
-  background: #0008ff;
+.q7-box.red {
+  background-color: #ff0000;
 }
 
-/* PC表示（960px以上）では青を消す */
-@media screen and (min-width: 960px) {
-  .q7-boxblue {
-    display: none;
-  }
+.q7-box.green {
+  background-color: #00ff51;
 }
 
-/* SP表示（960px未満）では赤を消す */
+.q7-box.blue {
+  background-color: #0008ff;
+  display: none; /* PCでは非表示 */
+}
+
+/* SP用 */
 @media screen and (max-width: 959px) {
-  .red {
-    display: none;
+  .q7-box.red {
+    display: none; /* 赤を非表示 */
   }
-  .blue {
-    display: flex;
-  } /* 青を表示 */
+  .q7-box.blue {
+    display: block; /* 青を表示 */
+  }
+
+  /* 順番を逆にする */
+  .q7-wrapper {
+    flex-direction: row-reverse;
+  }
 }
