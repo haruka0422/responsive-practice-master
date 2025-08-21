@@ -112,7 +112,6 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
   color: #000;
 }
 
@@ -122,7 +121,6 @@ h3 {
 }
 .box-b {
   background: #0008ff;
-  color: #fff;
 } /* 青なので文字は白推奨 */
 .box-c {
   background: #ff8400;
@@ -133,4 +131,89 @@ h3 {
   .q5-container {
     flex-direction: row-reverse; /* 横並びの逆順 */
   }
+}
+
+.q6-container {
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  text-align: center;
+}
+
+.q6-box {
+  width: 200px; /* 固定幅にする */
+  height: 200px; /* 固定高さにする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+/* PC用 (デフォルト) */
+.a {
+  background: #00ff51;
+  order: 1;
+}
+.b {
+  background: #d4ff00;
+  order: 2;
+}
+.c {
+  background: #ff00e1;
+  order: 3;
+}
+
+/* SP用 (960px未満) */
+@media screen and (max-width: 960px) {
+  .c {
+    order: 1;
+  }
+  .a {
+    order: 2;
+  }
+  .b {
+    order: 3;
+  }
+}
+
+.q7-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.q7-box {
+  flex: 1;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* テキストを下寄せ（スクショっぽく） */
+  font-size: 24px;
+  padding: 10px;
+}
+
+.red {
+  background: #ff0000;
+}
+.green {
+  background: #00ff51;
+}
+.blue {
+  background: #0008ff;
+}
+
+/* PC表示（960px以上）では青を消す */
+@media screen and (min-width: 960px) {
+  .q7-boxblue {
+    display: none;
+  }
+}
+
+/* SP表示（960px未満）では赤を消す */
+@media screen and (max-width: 959px) {
+  .red {
+    display: none;
+  }
+  .blue {
+    display: flex;
+  } /* 青を表示 */
 }
