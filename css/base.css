@@ -1,221 +1,227 @@
-@charset "UTF-8";
+@charset "UTF-8"; /* このCSSファイルの文字コードをUTF-8で解釈する */
 
+/* 見出し共通 */
 h1,
 h2,
 h3 {
-  text-align: center;
-  margin: 40px 0;
-  font-weight: bold;
+  text-align: center; /* テキストを中央寄せ */
+  margin: 40px 0; /* 上下40pxの外側余白、左右0 */
+  font-weight: bold; /* 太字にする */
 }
 
 .question--title {
-  font-size: 20px;
+  font-size: 20px; /* 見出しの文字サイズを20pxに */
 }
 
+/* Q1 ボックス（PC初期） */
 .q1-box {
-  width: 400px;
-  height: 400px;
-  background-color: #ff0000;
-  margin: 0 auto 40px;
+  width: 400px; /* 幅400px */
+  height: 400px; /* 高さ400px */
+  background-color: #ff0000; /* 背景色を赤に */
+  margin: 0 auto 40px; /* 上0/左右中央寄せ/下40pxの外側余白 */
 }
 
-/* SPサイズ（960px未満）でサイズ変更 */
+/* SPサイズ（〜959px）でサイズ変更 */
 @media screen and (max-width: 959px) {
   .q1-box {
-    width: 200px;
-    height: 200px;
+    width: 200px; /* 幅を200pxに縮小 */
+    height: 200px; /* 高さを200pxに縮小 */
   }
 }
 
+/* Q2 ボックス（PC初期） */
 .q2-box {
-  width: 300px;
-  height: 300px;
-  background-color: #ff0000;
-  margin: 0 auto 40px;
+  width: 300px; /* 幅300px */
+  height: 300px; /* 高さ300px */
+  background-color: #ff0000; /* 背景色を赤に */
+  margin: 0 auto 40px; /* 上0/左右中央/下40px */
 }
 
-/* SP：背景色を青に変更 */
+/* SP：背景色だけ青に変更 */
 @media screen and (max-width: 959px) {
   .q2-box {
-    background-color: #007bff;
+    background-color: #007bff; /* 背景色を青に */
   }
 }
 
+/* Q3 横並びと中央寄せ */
 .q3-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+  display: flex; /* 子要素をフレックスで横並びに */
+  justify-content: center; /* 子要素全体を中央寄せ */
+  margin-bottom: 40px; /* 下に40pxの外側余白 */
 }
 
 .q3-box {
-  width: 200px;
-  height: 200px;
+  width: 200px; /* 幅200px */
+  height: 200px; /* 高さ200px */
 }
 
 .q3-box.blue {
-  background-color: #0008ff;
-  margin-right: 150px; /* 初期（PC）の余白 */
+  background-color: #0008ff; /* 青色背景 */
+  margin-right: 150px; /* 右側に150pxの外側余白（PCの余白） */
 }
 
 .q3-box.green {
-  background-color: #22ff00;
+  background-color: #22ff00; /* 黄緑背景 */
 }
 
-/* SP用：余白を縮める */
+/* SP：青ボックスの余白を縮める */
 @media screen and (max-width: 959px) {
   .q3-box.blue {
-    margin-right: 50px;
+    margin-right: 50px; /* 右余白を50pxに */
   }
 }
 
+/* Q4 floatの領域を親でクリア */
 .q4-wrapper::after {
-  content: "";
-  display: block;
-  clear: both;
-  justify-content: center;
+  content: ""; /* 疑似要素を生成（中身なし） */
+  display: block; /* ブロックとして表示して */
+  clear: both; /* 左右floatの回り込みを解除 */
+  justify-content: center; /* ※疑似要素はフレックスでないので効果なし（無視される） */
 }
 
 .q4-box {
-  width: 200px;
-  height: 200px;
+  width: 200px; /* 幅200px */
+  height: 200px; /* 高さ200px */
 }
 
-/* PC時 横並び */
+/* PC時：二つをfloatで横並びに */
 .red {
-  background-color: #ff0000;
-  float: left;
+  background-color: #ff0000; /* 赤背景 */
+  float: left; /* 左に回り込み（横並び） */
 }
 
 .blue {
-  background-color: #0008ff;
-  float: left;
+  background-color: #0008ff; /* 青背景 */
+  float: left; /* 左に回り込み（横並び） */
 }
 
-/* SP時 縦並び */
+/* SP時：float解除で縦並び */
 @media screen and (max-width: 959px) {
   .red,
   .blue {
-    float: none !important; /* ← 強制解除 */
+    float: none !important; /* 強制的にfloatを無効化（縦並び化） */
   }
 
-  /* 青の下は余白なしにしたい場合 */
+  /* 青ボックスの下側の余白を消したい場合用（今回は何も指定していないので見た目変化は状況次第） */
   .blue {
-    margin-bottom: 0;
+    margin-bottom: 0; /* 下の外側余白を0に */
   }
 }
 
-/* 共通 */
+/* Q5 共通（横並びの中央配置） */
 .q5-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* フレックスレイアウトで横並び */
+  justify-content: center; /* 全体を中央寄せ */
+  align-items: center; /* 交差軸（縦）方向に中央揃え */
   text-align: center; /* 文字を中央寄せ */
 }
 
 .q5-box {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
+  width: 200px; /* 幅200px */
+  height: 200px; /* 高さ200px */
+  display: flex; /* 中のテキストを中央寄せするためにflex */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  color: #000; /* 文字色黒 */
 }
 
-/* 色分け */
+/* Q5 色分け */
 .box-a {
-  background: #ff0000;
+  background: #ff0000; /* 赤 */
 }
 .box-b {
-  background: #0008ff;
-} /* 青なので文字は白推奨 */
+  background: #0008ff; /* 青 */
+} /* ※青地は白文字推奨コメント（スタイル自体は黒のまま） */
 .box-c {
-  background: #ff8400;
+  background: #ff8400; /* オレンジ */
 }
 
-/* SP (960px未満) */
+/* SP（〜960px）：並びを逆順に */
 @media screen and (max-width: 960px) {
   .q5-wrapper {
-    flex-direction: row-reverse; /* 横並びの逆順 */
+    flex-direction: row-reverse; /* 子要素の並びを左右反転 */
   }
 }
 
+/* Q6 指定順で並び替え */
 .q6-wrapper {
-  display: flex;
+  display: flex; /* 横並び */
   justify-content: center; /* 中央寄せ */
-  text-align: center;
+  text-align: center; /* テキスト中央に */
 }
 
 .q6-box {
-  width: 200px; /* 固定幅にする */
-  height: 200px; /* 固定高さにする */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
+  width: 200px; /* 幅200px（固定） */
+  height: 200px; /* 高さ200px（固定） */
+  display: flex; /* 中身を中央寄せするためにflex */
+  justify-content: center; /* 横中央 */
+  align-items: center; /* 縦中央 */
+  color: #000; /* 文字色黒 */
 }
 
-/* PC用 (デフォルト) */
+/* PC時（初期の表示順） */
 .a {
-  background: #00ff51;
-  order: 1;
+  background: #00ff51; /* 黄緑背景 */
+  order: 1; /* 並び順1番目 */
 }
 .b {
-  background: #d4ff00;
-  order: 2;
+  background: #d4ff00; /* 黄背景 */
+  order: 2; /* 並び順2番目 */
 }
 .c {
-  background: #ff00e1;
-  order: 3;
+  background: #ff00e1; /* マゼンタ背景 */
+  order: 3; /* 並び順3番目 */
 }
 
-/* SP用 (960px未満) */
+/* SP時（〜960px）：順序を C→A→B に変更 */
 @media screen and (max-width: 960px) {
   .c {
-    order: 1;
+    order: 1; /* 最初に表示 */
   }
   .a {
-    order: 2;
+    order: 2; /* 次に表示 */
   }
   .b {
-    order: 3;
+    order: 3; /* 最後に表示 */
   }
 }
 
+/* Q7 表示・非表示と並び替え */
 .q7-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+  display: flex; /* 横並び */
+  justify-content: center; /* 中央寄せ */
+  margin-bottom: 40px; /* 下に40pxの外側余白 */
 }
 
 .q7-box {
-  width: 200px;
-  height: 200px;
+  width: 200px; /* 幅200px */
+  height: 200px; /* 高さ200px */
 }
 
 .q7-box.red {
-  background-color: #ff0000;
+  background-color: #ff0000; /* 赤背景 */
 }
 
 .q7-box.green {
-  background-color: #00ff51;
+  background-color: #00ff51; /* 緑背景 */
 }
 
 .q7-box.blue {
-  background-color: #0008ff;
-  display: none; /* PCでは非表示 */
+  background-color: #0008ff; /* 青背景 */
+  display: none; /* PCでは青を非表示 */
 }
 
-/* SP用 */
+/* SP（〜959px）：表示制御と逆順レイアウト */
 @media screen and (max-width: 959px) {
   .q7-box.red {
-    display: none; /* 赤を非表示 */
+    display: none; /* 赤を非表示に */
   }
   .q7-box.blue {
-    display: block; /* 青を表示 */
+    display: block; /* 青を表示に切替 */
   }
 
-  /* 順番を逆にする */
   .q7-wrapper {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* 子の並び順を逆転 */
   }
 }
